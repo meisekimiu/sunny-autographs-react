@@ -70,3 +70,13 @@ it('renders the schedule', () => {
 	expect(guest2_schedule.find('strong').at(1).text()).toBe("Sunday");
 	expect(guest2_schedule.find('span').at(1).text()).toBe("12pm-2pm");
 });
+
+it('swaps classes on click', () => {
+	let guest = makeGuest(info);
+	expect(guest.find('.autograph-cover').hasClass('autograph-visible')).toBe(true);
+	expect(guest.find('.autograph-schedule').hasClass('autograph-visible')).toBe(false);
+	guest.instance().handleClick();
+	guest.update();
+	expect(guest.find('.autograph-cover').hasClass('autograph-visible')).toBe(false);
+	expect(guest.find('.autograph-schedule').hasClass('autograph-visible')).toBe(true);
+});
