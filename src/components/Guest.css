@@ -3,17 +3,20 @@
 	padding: 0 2em;
 }
 .autograph-guest-wrapper {
-	display:table-cell;vertical-align:middle;
-	min-width:250px;min-height:250px;
-	max-width: 550px; max-height: 550px;
-	width: 40%;
-	height: 40%;
+	display:flex; align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 550px; height: 550px;
+}
+.autograph-guest::before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+	float: left;
 }
 .autograph-guest {
-	min-width:250px;min-height:250px;
-	max-width: 550px; max-height: 550px;
-	width: 40%;
-	height: 40%;
+	width: 550px;
+	height: 550px;
 	display: inline-block;
 	margin: 20px;
 	cursor: pointer;
@@ -21,8 +24,10 @@
 	position: relative;
 }
 .autograph-guest-img > img {
-	width: 100%;
+	max-width: 100%;
+	max-height: 100%;
 	border-radius: 7px;
+	user-select: none;
 }
 .autograph-guest-name {
 	font-size: 1.5em;
@@ -32,14 +37,24 @@
 	opacity: 0;
 	z-index: -5;
 	transition: opacity 1s;
-	position: absolute;
+	height: 0;
+	align-self: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	overflow: visible;
 	text-align: center;
 	width: 100%;
-}
-.autograph-schedule {
-	position: absolute;
 }
 .autograph-visible {
 	z-index: 5 !important;
 	opacity: 1;
+}
+
+@media only screen and (max-width: 767px) {
+	.autograph-guest,.autograph-guest-wrapper {
+		width: 250px;
+		height: 250px;
+	}
 }
