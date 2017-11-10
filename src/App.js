@@ -14,7 +14,7 @@ class App extends Component {
 	}
 	render() {
 	return (
-		<div>
+		<div style={{textAlign: "center", margin: "0 auto"}}>
 			{this.getGuests()}
 		</div>
 		);

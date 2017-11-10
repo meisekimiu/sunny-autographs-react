@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Guest.css';
 
 export default class Guest extends Component {
 	constructor(props) {
@@ -40,7 +41,7 @@ export default class Guest extends Component {
 		console.log(this.getCoverClass());
 		if(this.props.info) {
 		return (
-			<div>
+			<div className="autograph-guest" onClick={this.handleClick.bind(this)}><div className="autograph-guest-wrapper">
 				<div className={this.getCoverClass()}>
 					<div className="autograph-guest-img"><img src={this.props.info.image} alt={this.props.info.name} /></div>
 					<div className="autograph-guest-name"><span>{this.props.info.name}</span></div>
@@ -51,7 +52,7 @@ export default class Guest extends Component {
 						{this.makeSchedule(this.props.info.schedule)}
 					</div>
 				</div>
-			</div>
+			</div></div>
 			);
 		}
 		else {
